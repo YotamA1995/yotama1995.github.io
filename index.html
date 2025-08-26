@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MyFlix – Sign In</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="auth-wrap">
+        <h1 class="auth-wrap__title">MyFlix</h1>
+        <article class="card">
+          <header class="card__header">
+            <h2 class="card__title">Sign In</h2>
+          </header>
+
+          <form class="form" autocomplete="on" novalidate>
+            <label class="field">
+              <span class="field__label">Email</span>
+              <input
+                class="field__input"
+                type="email"
+                name="email"
+                placeholder="name@example.com"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span class="field__label">Password</span>
+              <input
+                class="field__input"
+                type="password"
+                name="password"
+                placeholder="Your password"
+                minlength="6"
+                required
+              />
+            </label>
+
+            <label class="check">
+              <input class="check__input" type="checkbox" name="remember" />
+              <span>Remember me</span>
+            </label>
+
+            <button class="btn" type="submit">Sign In</button>
+
+            <p class="text--muted">
+              New to MyFlix?
+              <a href="#" class="link">Create an account</a>
+            </p>
+          </form>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
