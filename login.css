@@ -1,42 +1,38 @@
-/* ======================
-   CSS Custom Properties
-   ====================== */
+/* Design Tokens */
 :root {
   --myflix-red: #e50914;
   --bg: #000;
   --ink: #fff;
   --muted: #b3b3b3;
+  --card-bg: #141414;
+  --border: #333;
+  --placeholder: #717171;
+  --transition: 0.2s ease;
 }
 
-/* ======================
-   Reset & Base Styles
-   ====================== */
-* {
+/* Reset & Base */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("images/background.png") center/cover no-repeat;
   color: var(--ink);
-  font-family: system-ui, Arial, sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
-/* ======================
-   Layout Components
-   ====================== */
+/* Layout */
 .page {
   min-height: 100vh;
   display: flex;
-  align-items: center; /* vertical center */
-  justify-content: center; /* horizontal center */
-  padding: 24px; /* safe padding for small screens */
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
 }
 
 .auth-wrap {
@@ -49,12 +45,11 @@ body {
   color: var(--myflix-red);
   font-weight: 800;
   letter-spacing: 0.3px;
-  font-size: 2.5em;
+  font-size: 2.5rem;
+  text-align: center;
 }
 
-/* ======================
-   Card Component
-   ====================== */
+/* Card */
 .card {
   background: rgba(11, 11, 11, 0.8);
   border: 1px solid rgba(34, 34, 34, 0.6);
@@ -64,10 +59,12 @@ body {
   backdrop-filter: blur(10px);
   max-width: 340px;
   min-height: 480px;
+  margin: 0 auto;
 }
 
 .card__header {
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .card__title {
@@ -75,9 +72,7 @@ body {
   font-size: 1.25rem;
 }
 
-/* ======================
-   Form Components
-   ====================== */
+/* Form */
 .form {
   display: flex;
   flex-direction: column;
@@ -96,20 +91,25 @@ body {
 }
 
 .field__input {
-  appearance: none;
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid #333;
-  background: #141414;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
   color: var(--ink);
+  font-family: inherit;
+  transition: border-color var(--transition);
+}
+
+.field__input:focus {
+  outline: none;
+  border-color: var(--myflix-red);
 }
 
 .field__input::placeholder {
-  color: #717171;
+  color: var(--placeholder);
 }
 
-/* Field States */
 .field--error .field__input {
   border-color: var(--myflix-red);
 }
@@ -118,9 +118,7 @@ body {
   color: var(--myflix-red);
 }
 
-/* ======================
-   Checkbox Component
-   ====================== */
+/* Checkbox & Button */
 .check {
   display: inline-flex;
   gap: 8px;
@@ -135,9 +133,6 @@ body {
   accent-color: var(--myflix-red);
 }
 
-/* ======================
-   Button Component
-   ====================== */
 .btn {
   cursor: pointer;
   margin-top: 6px;
@@ -145,13 +140,16 @@ body {
   border: 0;
   border-radius: 10px;
   background: var(--myflix-red);
-  color: #fff;
+  color: white;
   font-weight: 700;
-  transition: opacity 0.2s ease;
+  font-family: inherit;
+  transition: opacity var(--transition);
 }
 
-.btn:hover {
+.btn:is(:hover, :focus-visible) {
   opacity: 0.9;
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
 .btn:disabled,
@@ -181,28 +179,28 @@ body {
   }
 }
 
-/* ======================
-   Text & Link Components
-   ====================== */
+/* Text & Link */
 .text--muted {
   color: var(--muted);
   font-size: 0.95rem;
   margin: 8px 0 0;
+  text-align: center;
 }
 
 .link {
-  color: #fff;
+  color: white;
   text-decoration: underline;
-  transition: text-decoration 0.2s ease;
+  transition: text-decoration var(--transition);
 }
 
-.link:hover {
+.link:is(:hover, :focus-visible) {
   text-decoration: none;
+  outline: 2px solid var(--myflix-red);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-/* ======================
-   Utility Classes
-   ====================== */
+/* Utilities */
 .hidden {
   display: none;
 }

@@ -1,6 +1,4 @@
-/* ======================
-   CSS Custom Properties
-   ====================== */
+/* Design Tokens */
 :root {
   --myflix-red: #e50914;
   --bg: #000;
@@ -8,31 +6,27 @@
   --muted: #b3b3b3;
   --card-bg: #141414;
   --border: #333;
+  --hover-bg: rgba(255, 255, 255, 0.05);
+  --transition: 0.3s ease;
 }
 
-/* ======================
-   Reset & Base Styles
-   ====================== */
-* {
+/* Reset & Base */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("images/background.png") center/cover no-repeat;
   color: var(--ink);
-  font-family: system-ui, Arial, sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
-/* ======================
-   Layout Components
-   ====================== */
+/* Layout */
 .page-header {
   position: fixed;
   top: 0;
@@ -60,12 +54,9 @@ body {
   color: var(--myflix-red);
   font-weight: 800;
   letter-spacing: 0.3px;
-  font-size: 3.5em;
+  font-size: 3.5rem;
 }
 
-/* ======================
-   Profiles Content
-   ====================== */
 .profiles-content {
   max-width: 700px;
   margin: 0 auto;
@@ -75,12 +66,9 @@ body {
   margin: 0 0 32px;
   font-size: 2.2rem;
   font-weight: 400;
-  color: var(--ink);
 }
 
-/* ======================
-   Profiles Grid
-   ====================== */
+/* Profiles Grid & Cards */
 .profiles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -89,13 +77,10 @@ body {
   justify-items: center;
 }
 
-/* ======================
-   Profile Card Component
-   ====================== */
 .profile-card {
   cursor: pointer;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition);
   max-width: 180px;
 }
 
@@ -111,7 +96,7 @@ body {
   margin: 0 auto 12px;
   background: var(--card-bg);
   border: 2px solid transparent;
-  transition: border-color 0.3s ease;
+  transition: border-color var(--transition);
 }
 
 .profile-card:hover .profile-card__avatar {
@@ -127,9 +112,8 @@ body {
 .profile-card__name {
   margin: 0;
   font-size: 1.1rem;
-  font-weight: 400;
   color: var(--muted);
-  transition: color 0.3s ease;
+  transition: color var(--transition);
 }
 
 .profile-card:hover .profile-card__name {
@@ -141,18 +125,17 @@ body {
   background: transparent;
   border: none;
   font-size: 1.1rem;
-  font-weight: 400;
   color: var(--muted);
   text-align: center;
   width: 100%;
-  transition: all 0.3s ease;
+  transition: all var(--transition);
   font-family: inherit;
   cursor: pointer;
 }
 
 .profile-card__name-input:hover {
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--hover-bg);
   border-radius: 4px;
 }
 
@@ -170,15 +153,14 @@ body {
   color: var(--ink);
 }
 
-/* ======================
-   Add Profile Card
-   ====================== */
+/* Add Profile Card */
 .profile-card--add .profile-card__avatar--add {
   display: flex;
   align-items: center;
   justify-content: center;
   background: #2a2a2a;
   border: 2px dashed var(--muted);
+  transition: border-color var(--transition), background-color var(--transition);
 }
 
 .profile-card--add:hover .profile-card__avatar--add {
@@ -190,33 +172,29 @@ body {
   font-size: 3rem;
   color: var(--muted);
   font-weight: 300;
-  transition: color 0.3s ease;
+  transition: color var(--transition);
 }
 
 .profile-card--add:hover .profile-card__plus {
   color: var(--ink);
 }
 
-/* ======================
-   Actions Section
-   ====================== */
+/* Actions */
 .profiles-actions {
   margin-top: 24px;
 }
 
-/* ======================
-   Button Components
-   ====================== */
+/* Buttons */
 .btn {
   cursor: pointer;
   padding: 12px 24px;
   border: 0;
   border-radius: 4px;
-  font-weight: 400;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all var(--transition);
   text-decoration: none;
   display: inline-block;
+  font-family: inherit;
 }
 
 .btn--secondary {
@@ -225,9 +203,11 @@ body {
   border: 1px solid var(--muted);
 }
 
-.btn--secondary:hover {
+.btn--secondary:is(:hover, :focus-visible) {
   color: var(--ink);
   border-color: var(--ink);
+  outline: 2px solid var(--myflix-red);
+  outline-offset: 2px;
 }
 
 .btn--logout {
@@ -238,39 +218,34 @@ body {
   padding: 8px 16px;
 }
 
-.btn--logout:hover {
+.btn--logout:is(:hover, :focus-visible) {
   background: var(--myflix-red);
   border-color: var(--myflix-red);
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
-/* ======================
-   Responsive Design
-   ====================== */
+/* Responsive */
 @media (max-width: 768px) {
   .page-header {
     padding: 16px;
   }
-
   .profiles-wrap__title {
-    font-size: 2.8em;
+    font-size: 2.8rem;
     margin-bottom: 32px;
   }
-
   .profiles__heading {
     font-size: 1.8rem;
     margin-bottom: 24px;
   }
-
   .profiles-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
-
   .profile-card__avatar {
     width: 120px;
     height: 120px;
   }
-
   .profile-card__plus {
     font-size: 2.5rem;
   }
@@ -280,33 +255,23 @@ body {
   .page {
     padding: 16px;
   }
-
   .page-header {
     padding: 12px;
   }
-
   .profiles-wrap__title {
-    font-size: 2.2em;
+    font-size: 2.2rem;
   }
-
   .profiles__heading {
     font-size: 1.5rem;
   }
-
   .profiles-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-
   .profile-card__avatar {
     width: 100px;
     height: 100px;
   }
-
-  .profile-card__name {
-    font-size: 1rem;
-  }
-
+  .profile-card__name,
   .profile-card__name-input {
     font-size: 1rem;
   }

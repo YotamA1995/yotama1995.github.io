@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MyFlix</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header class="nav" role="banner">
+      <div class="nav__inner">
+        <div class="nav__left">
+          <a class="brand" href="#"
+            ><span class="brand__my">My</span
+            ><span class="brand__flix">Flix</span></a
+          >
+          <nav class="nav__menu">
+            <a href="#" class="nav__link">Home</a>
+            <a href="#" class="nav__link">TV Shows</a>
+            <a href="#" class="nav__link">Movies</a>
+            <a href="#" class="nav__link">Games</a>
+            <a href="#" class="nav__link">New & Popular</a>
+            <a href="#" class="nav__link">My List</a>
+            <a href="#" class="nav__link">Browse By Language</a>
+          </nav>
+        </div>
+        <div class="nav__right">
+          <a href="#notif" class="icon-btn" title="Notifications">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+              />
+            </svg>
+          </a>
+          <a href="#search" class="icon-btn" title="Search">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+              />
+            </svg>
+          </a>
+          <a href="#profile" class="avatar-btn" title="Profile">
+            <img src="images/avatar_1.png" alt="Current profile" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Panels using CSS-only target approach -->
+      <section id="profile" class="panel">
+        <header class="panel__header">
+          <h2>Current profile</h2>
+          <a href="#" class="panel__close" aria-label="Close">×</a>
+        </header>
+        <ul class="panel__list">
+          <li class="panel__item">
+            <img class="panel__avatar" src="images/avatar_1.png" alt="" />
+            <span>John</span>
+          </li>
+          <li class="panel__item">
+            <img class="panel__avatar" src="images/avatar_2.png" alt="" />
+            <span>Sarah</span>
+          </li>
+          <li class="panel__item">
+            <img class="panel__avatar" src="images/avatar_3.png" alt="" />
+            <span>Kids</span>
+          </li>
+        </ul>
+        <footer class="panel__footer">
+          <a href="profiles.html" class="panel__link">Manage profiles</a>
+        </footer>
+      </section>
+
+      <section id="search" class="panel">
+        <header class="panel__header">
+          <h2>Search</h2>
+          <a href="#" class="panel__close" aria-label="Close">×</a>
+        </header>
+        <div class="panel__body">
+          <label class="sr-only" for="q">Search</label>
+          <input id="q" type="search" placeholder="Titles, people, genres…" />
+          <button class="btn">Search</button>
+        </div>
+      </section>
+
+      <section id="notif" class="panel">
+        <header class="panel__header">
+          <h2>Notifications</h2>
+          <a href="#" class="panel__close" aria-label="Close">×</a>
+        </header>
+        <ul class="panel__list">
+          <li class="panel__item">New episode available for "Dark Matter".</li>
+          <li class="panel__item">Continue watching "MyFlix Originals".</li>
+          <li class="panel__item">Profile "Robot" was added.</li>
+          <li class="panel__item">Your watchlist has been updated.</li>
+        </ul>
+      </section>
+    </header>
+
+    <main class="content">
+      <section class="hero">
+        <h1>Coming soon</h1>
+        <p>The future of streaming entertainment</p>
+      </section>
+    </main>
+  </body>
+</html>
