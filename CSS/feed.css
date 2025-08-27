@@ -216,10 +216,27 @@ body {
   gap: 12px;
   cursor: pointer;
   transition: background-color var(--transition);
+  position: relative;
 }
 
 .panel__item:hover {
   background: rgba(255, 255, 255, 0.05);
+}
+
+.panel__item--active {
+  background: rgba(229, 9, 20, 0.1);
+  border-left: 3px solid var(--accent);
+}
+
+.panel__item--active:hover {
+  background: rgba(229, 9, 20, 0.15);
+}
+
+.current-indicator {
+  color: var(--accent);
+  font-weight: bold;
+  margin-left: auto;
+  font-size: 1.1rem;
 }
 
 .panel__avatar {
@@ -232,6 +249,9 @@ body {
 .panel__footer {
   padding: 12px 20px;
   border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .panel__link {
@@ -245,6 +265,25 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 2px;
+}
+
+.panel__logout-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+}
+
+.panel__logout-btn:is(:hover, :focus-visible) {
+  background: var(--accent);
+  color: white;
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
 /* Search Panel & Button */
@@ -297,6 +336,139 @@ body {
   min-height: 100vh;
 }
 
+/* Navigation greeting and sort button */
+.nav__greeting {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav__sort-btn {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.nav__sort-btn:is(:hover, :focus-visible) {
+  background: var(--hover-bg);
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Catalog */
+.catalog {
+  padding: 32px 24px;
+}
+
+.catalog-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.content-card {
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+
+.content-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent);
+}
+
+.content-card__info {
+  padding: 20px;
+}
+
+.content-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.content-card__meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.content-card__year,
+.content-card__genre {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.content-card__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.like-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-size: 0.9rem;
+}
+
+.like-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+}
+
+.like-btn.liked {
+  animation: likeAnimation 0.3s ease;
+  background: rgba(229, 9, 20, 0.2);
+  border-color: var(--accent);
+}
+
+.like-icon {
+  font-size: 1.1rem;
+  transition: transform var(--transition);
+}
+
+.like-btn:hover .like-icon {
+  transform: scale(1.2);
+}
+
+@keyframes likeAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -321,6 +493,22 @@ body {
 }
 
 /* Responsive */
+@media (max-width: 768px) {
+  .nav__greeting {
+    display: none; /* Hide greeting on mobile to save space */
+  }
+
+  .nav__sort-btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+}
+
 @media (max-width: 640px) {
   .nav__inner {
     padding: 0 16px;

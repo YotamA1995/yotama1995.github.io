@@ -118,6 +118,25 @@ body {
   color: var(--myflix-red);
 }
 
+.field__error {
+  display: block;
+  color: var(--myflix-red);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Checkbox & Button */
 .check {
   display: inline-flex;

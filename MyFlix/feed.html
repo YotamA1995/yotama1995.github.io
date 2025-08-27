@@ -25,6 +25,8 @@
           </nav>
         </div>
         <div class="nav__right">
+          <span class="nav__greeting">Hello, Guest</span>
+          <button id="sortToggle" class="nav__sort-btn">Sort A→Z</button>
           <a href="#notif" class="icon-btn" title="Notifications">
             <svg
               width="20"
@@ -63,22 +65,12 @@
           <h2>Current profile</h2>
           <a href="#" class="panel__close" aria-label="Close">×</a>
         </header>
-        <ul class="panel__list">
-          <li class="panel__item">
-            <img class="panel__avatar" src="../images/avatar_1.png" alt="" />
-            <span>John</span>
-          </li>
-          <li class="panel__item">
-            <img class="panel__avatar" src="../images/avatar_2.png" alt="" />
-            <span>Sarah</span>
-          </li>
-          <li class="panel__item">
-            <img class="panel__avatar" src="../images/avatar_3.png" alt="" />
-            <span>Kids</span>
-          </li>
+        <ul class="panel__list" id="profilesList">
+          <!-- Profiles will be dynamically generated -->
         </ul>
         <footer class="panel__footer">
           <a href="profiles.html" class="panel__link">Manage profiles</a>
+          <button id="logoutBtn" class="panel__logout-btn">Logout</button>
         </footer>
       </section>
 
@@ -109,10 +101,12 @@
     </header>
 
     <main class="content">
-      <section class="hero">
-        <h1>Coming soon</h1>
-        <p>The future of streaming entertainment</p>
+      <section class="catalog">
+        <div class="catalog-grid" id="catalogGrid">
+          <!-- Content will be dynamically generated -->
+        </div>
       </section>
     </main>
+    <script src="../js/feed.js"></script>
   </body>
 </html>
