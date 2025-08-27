@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MyFlix – Who's watching?</title>
+    <link rel="stylesheet" href="profiles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <button class="btn btn--logout">Log Out</button>
+    </header>
+    <main class="page">
+      <section class="profiles-wrap">
+        <h1 class="profiles-wrap__title">MyFlix</h1>
+
+        <div class="profiles-content">
+          <h2 class="profiles__heading">Who's watching?</h2>
+
+          <div class="profiles-grid">
+            <article class="profile-card">
+              <div class="profile-card__avatar">
+                <img
+                  src="images/avatar_1.png"
+                  alt="John"
+                  class="profile-card__image"
+                />
+              </div>
+              <input
+                type="text"
+                value="John"
+                class="profile-card__name-input"
+              />
+            </article>
+
+            <article class="profile-card">
+              <div class="profile-card__avatar">
+                <img
+                  src="images/avatar_2.png"
+                  alt="Sarah"
+                  class="profile-card__image"
+                />
+              </div>
+              <input
+                type="text"
+                value="Sarah"
+                class="profile-card__name-input"
+              />
+            </article>
+
+            <article class="profile-card">
+              <div class="profile-card__avatar">
+                <img
+                  src="images/avatar_3.png"
+                  alt="Kids"
+                  class="profile-card__image"
+                />
+              </div>
+              <input
+                type="text"
+                value="Kids"
+                class="profile-card__name-input"
+              />
+            </article>
+
+            <article class="profile-card profile-card--add">
+              <div class="profile-card__avatar profile-card__avatar--add">
+                <span class="profile-card__plus">+</span>
+              </div>
+              <h3 class="profile-card__name">Add Profile</h3>
+            </article>
+          </div>
+
+          <div class="profiles-actions">
+            <button class="btn btn--secondary">Manage Profiles</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
